@@ -1,0 +1,20 @@
+.Data-Grid {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.Grid-Header {
+  text-align: center;
+}
+
+.Grid-Header-Bar {
+  background-color: #3f51b5;
+  border-radius: 3px;
+}
+
+.Grid-Header-Data {
+}

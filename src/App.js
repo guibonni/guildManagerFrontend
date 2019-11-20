@@ -1,12 +1,15 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import HomePage from './_pages/HomePage/HomePage';
+import MemberPage from './_pages/MemberPage/MemberPage';
 
 export default () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Grand Chase Guild Manager</h1>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/members" component={MemberPage} />
+      </div>
+    </Router>
   );
 }
