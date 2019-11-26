@@ -8,6 +8,26 @@ const GridHeader = (props) => (
   </Grid>
 )
 
+const GridData = (props) => (
+  <Grid xs={props.header.size} className="Grid-Header">
+    {props.data[props.header.data]}<br/>
+  </Grid>
+)
+
+const GridRow = (props) => {
+  const {row, headers} = props;
+
+  return (
+    <div className="Grid-Row">
+      {
+        headers.map((header, index) => {
+          return (<GridData header={header} data={row} key={index} />)
+        })
+      }
+    </div>
+  )
+}
+
 export default class DataGrid extends React.Component {
   render() {
     const {headers, data} = this.props;
@@ -18,8 +38,8 @@ export default class DataGrid extends React.Component {
           <Grid xs={0} md={1} />
           <Grid item xs={12} md={10} container className="Grid-Header-Bar">
             {
-              headers.map((header) => {
-                return (<GridHeader header={header} />)
+              headers.map((header, index) => {
+                return (<GridHeader header={header} key={index} />)
               })
             }
           </Grid>
@@ -29,9 +49,8 @@ export default class DataGrid extends React.Component {
           <Grid xs={0} md={1} />
           <Grid item xs={12} md={10} container className="Grid-Header-Data">
             {
-              headers.map((header) => {
-                return (<GridHeader header={header} />)
-                // Fazer um map para cada linha dos dados e dentro de cada uma dessas linhas fazer um map igual o do header
+              data.map((row, index) => {
+                return (<GridRow row={row} headers={headers} key={index} />)
               })
             }
           </Grid>
