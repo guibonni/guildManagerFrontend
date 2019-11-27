@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../App.css';
 import DataGrid from '../../_components/DataGrid';
+import BossRecordService from '../../_services/BossRecordService';
 
 export default class BossRecordPage extends React.Component {
     constructor(props) {
@@ -14,37 +15,17 @@ export default class BossRecordPage extends React.Component {
     }
 
     componentDidMount() {
-        const data = [
-            {
-                "id": 5,
-                "data": "22/11/2019"
-            },
-            {
-                "id": 4,
-                "data": "21/11/2019"
-            },
-            {
-                "id": 3,
-                "data": "20/11/2019"
-            },
-            {
-                "id": 2,
-                "data": "19/11/2019"
-            },
-            {
-                "id": 1,
-                "data": "18/11/2019"
-            }
-        ];
-
-        this.setState({ ...this.state, data });
+        BossRecordService.getAll(true)
+            .then((response) => response.json())
+            .then((data) => this.setState({ ...this.state, data }))
     }
     
     render() {
-        console.log(this.state)
         const gridHeaders = [
-            { label: 'Id', size: 5, data: 'id' },
-            { label: 'Data', size: 7, data: 'data' }
+            { label: 'Id', size: 1, data: 'id' },
+            { label: 'Membro', size: 5, data: 'membro' },
+            { label: 'Data', size: 3, data: 'data' },
+            { label: 'Dano', size: 3, data: 'dano' }
         ];
 
         return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../App.css';
 import DataGrid from '../../_components/DataGrid';
+import TeamService from '../../_services/TeamService';
 
 export default class TeamPage extends React.Component {
     constructor(props) {
@@ -14,38 +15,12 @@ export default class TeamPage extends React.Component {
     }
 
     componentDidMount() {
-        const data = [
-            {
-                "id": 1,
-                "personagem1": "Elesis",
-                "personagem2": "Amy",
-                "personagem3": "Zero",
-                "personagem4": "Werner",
-                "mascote1": "Musa"
-            },
-            {
-                "id": 2,
-                "personagem1": "Jin",
-                "personagem2": "Edel",
-                "personagem3": "Rey",
-                "personagem4": "Nellia",
-                "mascote1": "Armon"
-            },
-            {
-                "id": 3,
-                "personagem1": "Elesis",
-                "personagem2": "Lire",
-                "personagem3": "Nellia",
-                "personagem4": "Werner",
-                "mascote1": "Porco Dourado"
-            }
-        ];
-
-        this.setState({ ...this.state, data });
+        TeamService.getAll(true)
+            .then((response) => response.json())
+            .then((data) => this.setState({ ...this.state, data }))
     }
     
     render() {
-        console.log(this.state)
         const gridHeaders = [
             { label: 'Id', size: 2, data: 'id' },
             { label: 'Personagem 1', size: 2, data: 'personagem1' },

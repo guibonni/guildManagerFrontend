@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../App.css';
 import DataGrid from '../../_components/DataGrid';
+import BattleRecordService from '../../_services/BattleRecordService';
 
 export default class BattleRecordPage extends React.Component {
     constructor(props) {
@@ -14,33 +15,16 @@ export default class BattleRecordPage extends React.Component {
     }
 
     componentDidMount() {
-        const data = [
-            {
-                "id": 4,
-                "data": "26/11/2019"
-            },
-            {
-                "id": 3,
-                "data": "24/11/2019"
-            },
-            {
-                "id": 2,
-                "data": "22/11/2019"
-            },
-            {
-                "id": 1,
-                "data": "20/11/2019"
-            }
-        ];
-
-        this.setState({ ...this.state, data });
+        BattleRecordService.getAll(true)
+            .then((response) => response.json())
+            .then((data) => this.setState({ ...this.state, data }))
     }
     
     render() {
-        console.log(this.state)
         const gridHeaders = [
-            { label: 'Id', size: 5, data: 'id' },
-            { label: 'Data', size: 7, data: 'data' }
+            { label: 'Id', size: 2, data: 'id' },
+            { label: 'Membro', size: 7, data: 'membro' },
+            { label: 'Data', size: 3, data: 'data' }
         ];
 
         return (

@@ -1,6 +1,6 @@
 import {API_URL} from '../_utils/Config';
 
-export default class MemberService {
+export default class TeamService {
     static getAll(resumido = false) {
         let myHeaders = new Headers();
 
@@ -11,6 +11,6 @@ export default class MemberService {
             cache: 'default'
         };
 
-        return fetch(`${API_URL}/Membros?resumido=${resumido}`, myInit);
+        return fetch(`${API_URL}/Equipes?resumido=${resumido}`, myInit);
     }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../App.css';
 import DataGrid from '../../_components/DataGrid';
+import PowerRecordService from '../../_services/PowerRecordService';
 
 export default class PowerRecordPage extends React.Component {
     constructor(props) {
@@ -14,29 +15,17 @@ export default class PowerRecordPage extends React.Component {
     }
 
     componentDidMount() {
-        const data = [
-            {
-                "id": 3,
-                "data": "23/11/2019"
-            },
-            {
-                "id": 2,
-                "data": "16/11/2019"
-            },
-            {
-                "id": 1,
-                "data": "09/11/2019"
-            }
-        ];
-
-        this.setState({ ...this.state, data });
+        PowerRecordService.getAll(true)
+            .then((response) => response.json())
+            .then((data) => this.setState({ ...this.state, data }))
     }
     
     render() {
-        console.log(this.state)
         const gridHeaders = [
-            { label: 'Id', size: 5, data: 'id' },
-            { label: 'Data', size: 7, data: 'data' }
+            { label: 'Id', size: 1, data: 'id' },
+            { label: 'Membro', size: 5, data: 'membro' },
+            { label: 'Data', size: 3, data: 'data' },
+            { label: 'Poder', size: 3, data: 'poder' }
         ];
 
         return (
