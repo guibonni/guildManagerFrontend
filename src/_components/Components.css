@@ -23,6 +23,7 @@
 }
 
 .Grid-Row {
+  margin-top: 5px;
   text-align: center;
   display: flex;
   flex-direction: row;

@@ -23,8 +23,8 @@ export default class BattleRecordPage extends React.Component {
     render() {
         const gridHeaders = [
             { label: 'Id', size: 2, data: 'id' },
-            { label: 'Membro', size: 7, data: 'membro' },
-            { label: 'Data', size: 3, data: 'data' }
+            { label: 'Membro', size: 6, data: 'membro' },
+            { label: 'Data', size: 2, data: 'data' }
         ];
 
         return (

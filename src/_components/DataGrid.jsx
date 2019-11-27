@@ -1,5 +1,7 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import './Components.css';
 
 const GridHeader = (props) => (
@@ -24,6 +26,12 @@ const GridRow = (props) => {
           return (<GridData header={header} data={row} key={index} />)
         })
       }
+      <Grid xs={2} className="Grid-Header">
+        <ButtonGroup fullWidth variant="contained" color="primary">
+          <Button>Alterar</Button>
+          <Button>Excluir</Button>
+        </ButtonGroup>
+      </Grid>
     </div>
   )
 }
@@ -42,6 +50,7 @@ export default class DataGrid extends React.Component {
                 return (<GridHeader header={header} key={index} />)
               })
             }
+            <GridHeader header={{ label: '', size: 2, data: '' }} />
           </Grid>
           <Grid xs={0} md={1} />
         </Grid>

@@ -22,12 +22,12 @@ export default class TeamPage extends React.Component {
     
     render() {
         const gridHeaders = [
-            { label: 'Id', size: 2, data: 'id' },
+            { label: 'Id', size: 1, data: 'id' },
             { label: 'Personagem 1', size: 2, data: 'personagem1' },
             { label: 'Personagem 2', size: 2, data: 'personagem2' },
             { label: 'Personagem 3', size: 2, data: 'personagem3' },
             { label: 'Personagem 4', size: 2, data: 'personagem4' },
-            { label: 'Mascote', size: 2, data: 'mascote1' }
+            { label: 'Mascote', size: 1, data: 'mascote1' }
         ];
 
         return (

@@ -23,8 +23,8 @@ export default class MemberPage extends React.Component {
     render() {
         const gridHeaders = [
             { label: 'Id', size: 2, data: 'id' },
-            { label: 'Nome', size: 5, data: 'nome' },
-            { label: 'Cargo', size: 5, data: 'cargo' }
+            { label: 'Nome', size: 4, data: 'nome' },
+            { label: 'Cargo', size: 4, data: 'cargo' }
         ];
 
         return (

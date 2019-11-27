@@ -24,8 +24,8 @@ export default class PowerRecordPage extends React.Component {
         const gridHeaders = [
             { label: 'Id', size: 1, data: 'id' },
             { label: 'Membro', size: 5, data: 'membro' },
-            { label: 'Data', size: 3, data: 'data' },
-            { label: 'Poder', size: 3, data: 'poder' }
+            { label: 'Data', size: 2, data: 'data' },
+            { label: 'Poder', size: 2, data: 'poder' }
         ];
 
         return (
