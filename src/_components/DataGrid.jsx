@@ -17,7 +17,7 @@ const GridData = (props) => (
 )
 
 const GridRow = (props) => {
-  const {row, headers} = props;
+  const {row, headers, alterarClick, deletarClick} = props;
 
   return (
     <div className="Grid-Row">
@@ -28,8 +28,8 @@ const GridRow = (props) => {
       }
       <Grid xs={2} className="Grid-Header">
         <ButtonGroup fullWidth variant="contained" color="primary">
-          <Button>Alterar</Button>
-          <Button>Excluir</Button>
+          <Button onClick={() => alterarClick(row)}>Alterar</Button>
+          <Button onClick={() => deletarClick(row)}>Excluir</Button>
         </ButtonGroup>
       </Grid>
     </div>
@@ -38,7 +38,7 @@ const GridRow = (props) => {
 
 export default class DataGrid extends React.Component {
   render() {
-    const {headers, data} = this.props;
+    const {headers, data, alterarClick, deletarClick} = this.props;
 
     return (
       <div className="Data-Grid">
@@ -59,7 +59,15 @@ export default class DataGrid extends React.Component {
           <Grid item xs={12} md={10} container className="Grid-Header-Data">
             {
               data.map((row, index) => {
-                return (<GridRow row={row} headers={headers} key={index} />)
+                return (
+                  <GridRow 
+                    row={row} 
+                    headers={headers} 
+                    alterarClick={alterarClick} 
+                    deletarClick={deletarClick} 
+                    key={index} 
+                  />
+                )
               })
             }
           </Grid>
