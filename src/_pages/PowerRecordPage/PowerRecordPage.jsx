@@ -22,7 +22,7 @@ export default class PowerRecordPage extends React.Component {
     }
     
     loadGrid() {
-        PowerRecordPage.getAll(true)
+        PowerRecordService.getAll(true)
             .then((response) => response.json())
             .then((data) => this.setState({ ...this.state, data }));
     }
