@@ -12,14 +12,19 @@ export default class PowerRecordPage extends React.Component {
         };
 
         this.componentDidMount = this.componentDidMount.bind(this);
+        this.loadGrid = this.loadGrid.bind(this);
         this.alterar = this.alterar.bind(this);
         this.deletar = this.deletar.bind(this);
     }
 
     componentDidMount() {
-        PowerRecordService.getAll(true)
+        this.loadGrid();
+    }
+    
+    loadGrid() {
+        PowerRecordPage.getAll(true)
             .then((response) => response.json())
-            .then((data) => this.setState({ ...this.state, data }))
+            .then((data) => this.setState({ ...this.state, data }));
     }
 
     alterar(dataRow) {
@@ -28,8 +33,9 @@ export default class PowerRecordPage extends React.Component {
     }
 
     deletar(dataRow) {
-        console.log('Deletar');
-        console.log(dataRow);
+        PowerRecordService.delete(dataRow.id)
+            .then(() => this.loadGrid())
+            .catch((err) => console.log(err));
     }
     
     render() {
