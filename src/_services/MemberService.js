@@ -30,4 +30,20 @@ export default class MemberService {
             return Promise.reject('Id inválido');
         }
     }
+
+    static create(data) {
+        let myHeaders = new Headers();
+        
+        myHeaders.append('Content-Type', 'application/json');
+
+        let myInit = {
+            method: 'POST',
+            headers: myHeaders,
+            mode: 'cors',
+            cache: 'default',
+            body: JSON.stringify(data)
+        };
+
+        return fetch(`${API_URL}/Membros`, myInit);
+    }
 }

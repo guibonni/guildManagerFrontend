@@ -9,3 +9,11 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.Full-Width {
+  width: 100%;
+}
+
+.Default-Text-Field {
+  width: 50%;
+}
